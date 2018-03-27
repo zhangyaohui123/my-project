@@ -39,6 +39,8 @@ export default {
       }
       login(params).then(res => {
         if (res.meta.status === 200) {
+          // 存储token
+          localStorage.setItem('mytoken', res.data.token)
           this.$router.push({name: 'home'})
         } else {
           console.log('用户名或密码错误')
